@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cuadro de mando SSC</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Seguro Social Campesino</p>
+          <h1>Cuadro de mando directivo</h1>
+          <p class="subtitle">
+            Monitorea distribución territorial, aportación mensual estimada y composición demográfica con filtros
+            nacionales, zonales, provinciales y cantonales.
+          </p>
+        </div>
+        <div class="hero-card" id="selectionSummary"></div>
+      </header>
+
+      <section class="panel filters">
+        <div class="panel-head">
+          <h2>Filtros</h2>
+          <p>Selecciona un mes y un nivel territorial para recalcular el tablero.</p>
+        </div>
+        <div class="filter-grid">
+          <label>
+            <span>Mes</span>
+            <select id="monthSelect"></select>
+          </label>
+          <label>
+            <span>Zona</span>
+            <select id="zoneSelect"></select>
+          </label>
+          <label>
+            <span>Provincia</span>
+            <select id="provinceSelect"></select>
+          </label>
+          <label>
+            <span>Cantón</span>
+            <select id="cantonSelect"></select>
+          </label>
+          <label>
+            <span>Género</span>
+            <select id="genderSelect"></select>
+          </label>
+          <label>
+            <span>Relación</span>
+            <select id="statusSelect"></select>
+          </label>
+        </div>
+      </section>
+
+      <section class="metrics" id="metrics"></section>
+
+      <section class="grid-2">
+        <article class="panel" id="territorialPanel">
+          <div class="panel-head">
+            <h2>Distribución territorial</h2>
+            <p>Ranking del mes y filtro actual.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Provincia</th><th>Afiliados</th><th>%</th></tr>
+              </thead>
+              <tbody id="provinceTable"></tbody>
+            </table>
+          </div>
+          <div class="table-wrap compact">
+            <table>
+              <thead>
+                <tr><th>Cantón</th><th>Afiliados</th><th>%</th></tr>
+              </thead>
+              <tbody id="cantonTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel" id="demographicPanel">
+          <div class="panel-head">
+            <h2>Composición demográfica</h2>
+            <p>Participación por género y relación.</p>
+          </div>
+          <div id="genderBars" class="bars"></div>
+          <div id="statusBars" class="bars bars-tight"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Evolución mensual</h2>
+          <p>Serie temporal del contexto seleccionado.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Mes</th><th>Afiliados</th><th>Aportación estimada</th><th>Dependencia</th></tr>
+            </thead>
+            <tbody id="trendTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
